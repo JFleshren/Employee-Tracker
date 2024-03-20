@@ -1,29 +1,16 @@
-//Create Department model
-const { Model, DataTypes} = require('sequelize');
-const sequelize = require('../config/connection');
+// Import database functions
+const { query } = require('../dbFunctions');
 
-//Create Department model
-class Department extends Model {}
-
-//Define table columns and configuration
-Department.init(
-  {
-    dept_id:{
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      allowNull: false,
-      primaryKey: true
-    },
-    dept_name:{
-      type: DataTypes.STRING(30),
-      allowNull: false,
+class Department {
+    static async getAll() {
+        const sql = 'SELECT * FROM department';
+        return await query(sql);
     }
-  }, 
-  {
-    sequelize,
-    timestamps: false,
-    underscored: true,
-    modelName: 'departments',
-  }
-);
+
+    static async getById(departmentId) {
+        const sql = 'SELECT * FROM department WHERE id = ?';
+        return await query(sql, [departmentId]);
+    }
+}
+
 module.exports = Department;
