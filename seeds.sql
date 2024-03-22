@@ -12,7 +12,7 @@ CREATE TABLE department (
 INSERT INTO department (name) VALUES
 ('Engineering'),
 ('Sales'),
-('Marketing');
+('Marketing'),
 ('HR'),
 ('Finance');
 
@@ -30,7 +30,7 @@ CREATE TABLE role (
 INSERT INTO role (title, salary, department_id) VALUES
 ('Software Engineer', 85000, 1),
 ('Sales Manager', 102000, 2),
-('Marketing Coordinator', 60000, 3);
+('Marketing Coordinator', 60000, 3),
 ('HR Specialist', 65000, 4),
 ('Financial Analyst', 73000, 5);
 
@@ -50,6 +50,6 @@ CREATE TABLE employee (
 INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES
 ('John', 'Doe', 1, NULL),
 ('Jill', 'Smith', 2, 1),
-('Michael', 'Johnson', 3, 1);
+('Michael', 'Johnson', 3, 1),
 ('Emily', 'Jones', 4, NULL),
 ('David', 'Brown', 5, NULL);
