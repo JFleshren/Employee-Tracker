@@ -5,8 +5,11 @@ const Employee = require('./models/employee');
 
 // Main function to start the application
 const main = async () => {
-    try {
-     
+    let action = '';
+
+    while (action !== 'Exit') {
+        try {
+
     // Prompt user for actions
     const { action } = await inquirer.prompt({
         type: 'list',
@@ -146,13 +149,14 @@ case 'Update an employee role':
     console.log('Employee role updated successfully!');
     break;
 
-        default:
-            console.log('Exiting...');
-            process.exit();
+            }
+        } catch (error) {
+            console.error('An error occurred:', error.message);
+        }
     }
-} catch (error) {
-    console.error('An error occurred:', error.message);
-}
+
+    console.log('Exiting...');
+    process.exit();
 };
 
 //start the application
