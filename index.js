@@ -1,6 +1,4 @@
 const inquirer = require('inquirer');
-
-// Import models
 const Department = require('./models/department');
 const Role = require('./models/role');
 const Employee = require('./models/employee');
@@ -136,7 +134,7 @@ case 'Update an employee role':
         value: role.id
     }));
 
-    const roleId = await inquirer.prompt({
+    const {roleId: selectedRoleId} = await inquirer.prompt({
         type: 'list',
         name: 'roleId',
         message: 'Select the new role for the employee:',
@@ -144,7 +142,7 @@ case 'Update an employee role':
     });
 
     // Call Employee.updateRole() to update employee's role
-    await Employee.updateRole(selectedEmployeeId, swlwctedRoleId);
+    await Employee.updateRole(selectedEmployeeId, selectedRoleId);
     console.log('Employee role updated successfully!');
     break;
 
