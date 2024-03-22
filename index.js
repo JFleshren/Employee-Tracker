@@ -11,7 +11,7 @@ const main = async () => {
         try {
 
     // Prompt user for actions
-    const { action } = await inquirer.prompt({
+    const { action: userAction } = await inquirer.prompt({
         type: 'list',
         name: 'action',
         message: 'What would you like to do?',
@@ -26,6 +26,8 @@ const main = async () => {
             'Exit'
         ]
     });
+
+    action = userAction; // Store user's choice in action variable
 
     // Perform action based on user's choice
     switch (action) {

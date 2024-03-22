@@ -2,6 +2,7 @@ DROP DATABASE IF EXISTS management_db;
 CREATE DATABASE management_db;  
 USE management_db;
 -- Create department table
+DROP TABLE IF EXISTS department;
 CREATE TABLE department (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(30)
@@ -16,6 +17,7 @@ INSERT INTO department (name) VALUES
 ('Finance');
 
 -- Create role table
+DROP TABLE IF EXISTS role;  
 CREATE TABLE role (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(30),
@@ -33,6 +35,7 @@ INSERT INTO role (title, salary, department_id) VALUES
 ('Financial Analyst', 73000, 5);
 
 -- Create employee table
+DROP TABLE IF EXISTS employee;
 CREATE TABLE employee (
     id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(30),

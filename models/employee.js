@@ -15,6 +15,10 @@ class Employee {
         const sql = 'SELECT * FROM employee WHERE department_id = ?';
         return await query(sql, [departmentId]);
     }
+    static async updateRole(employeeId, roleId) {
+        const sql = 'UPDATE employee SET role_id = ? WHERE id = ?';
+        return await query(sql, [roleId, employeeId]);
+    }
 
 }
 
